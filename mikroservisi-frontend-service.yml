@@ -5,9 +5,9 @@ metadata:
   labels:
     app: mikroservisi
 spec:
-  type: LoadBalancer
-  ports:
+type: LoadBalancer
+ports:
     - port: 3000
       targetPort: 3000
-  selector:
+selector:
     app: mikroservisi
