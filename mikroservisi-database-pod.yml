@@ -11,3 +11,5 @@ spec:
       image: cordarjovana/mikroservisi:database
       ports:
         - containerPort: 4185
+  imagePullSecrets:
+    - name: myregistrykey

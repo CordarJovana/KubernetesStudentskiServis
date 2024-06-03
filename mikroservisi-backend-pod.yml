@@ -11,3 +11,5 @@ spec:
       image: cordarjovana/mikroservisi:backend
       ports:
         - containerPort: 1337
+  imagePullSecrets:
+    - name: myregistrykey

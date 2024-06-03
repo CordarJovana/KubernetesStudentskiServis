@@ -6,6 +6,8 @@ metadata:
     name: mikroservisi-phpmyadmin-pod
     app: mikroservisi
 spec:
+  imagePullSecrets:
+    - name: myregistrykey
   containers:
     - name: pma
       image: cordarjovana/mikroservisi:phpmyadmin

@@ -11,3 +11,5 @@ spec:
       image: cordarjovana/mikroservisi:exams
       ports:
         - containerPort: 4000
+  imagePullSecrets:
+    - name: myregistrykey
