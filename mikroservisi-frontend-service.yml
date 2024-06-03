@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: mikroservisi-frontend-service
   labels:
-    app: mikroservisi
+     app: mikroservisi
 spec:
-type: LoadBalancer
-ports:
-    - port: 3000
-      targetPort: 3000
-selector:
-    app: mikroservisi
+   type: LoadBalancer
+   ports:
+     - port: 3000
+       targetPort: 3000
+   selector:
+     app: mikroservisi
