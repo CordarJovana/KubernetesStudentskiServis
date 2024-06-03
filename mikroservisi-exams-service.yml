@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mikroservisi-exams-service
+  labels:
+    name: mikroservisi-exams-service
+    app: mikroservisi
+spec:
+  ports:
+    - port: 4000
+      targetPort: 4000
+  selector:
+    name: mikroservisi-exams-pod
+    app: mikroservisi
