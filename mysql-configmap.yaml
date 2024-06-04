@@ -4,34 +4,13 @@ metadata:
   name: estudent-sql
 data:
   estudent.sql: |
-   -- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jul 30, 2023 at 05:23 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+
+  CREATE DATABASE IF NOT EXISTS estudent;
+    USE estudent;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `estudent`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `archive`
---
 
 CREATE TABLE `archive` (
   `id` int(11) NOT NULL,
@@ -41,12 +20,6 @@ CREATE TABLE `archive` (
   `originalRecordId` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `ispit`
---
-
 CREATE TABLE `ispit` (
   `createdAt` bigint(20) DEFAULT NULL,
   `updatedAt` bigint(20) DEFAULT NULL,
@@ -55,10 +28,6 @@ CREATE TABLE `ispit` (
   `ispitniRok` int(11) DEFAULT NULL,
   `predmet` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `ispit`
---
 
 INSERT INTO `ispit` (`createdAt`, `updatedAt`, `id`, `datum`, `ispitniRok`, `predmet`) VALUES
 (NULL, NULL, 4, '2023-06-16 16:30:00', 4, 1),
@@ -98,12 +67,6 @@ INSERT INTO `ispit` (`createdAt`, `updatedAt`, `id`, `datum`, `ispitniRok`, `pre
 (NULL, NULL, 38, '2023-09-10 16:48:32', 7, 11),
 (NULL, NULL, 39, '2023-09-11 16:48:32', 7, 12);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `ispitnirok`
---
-
 CREATE TABLE `ispitnirok` (
   `createdAt` bigint(20) DEFAULT NULL,
   `updatedAt` bigint(20) DEFAULT NULL,
@@ -115,10 +78,6 @@ CREATE TABLE `ispitnirok` (
   `datumZavrsetkaPrijave` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `ispitnirok`
---
-
 INSERT INTO `ispitnirok` (`createdAt`, `updatedAt`, `id`, `naziv`, `datumPocetka`, `datumKraja`, `datumPocetkaPrijave`, `datumZavrsetkaPrijave`) VALUES
 (NULL, NULL, 1, 'Јануарски', '2023-01-15 17:42:37', '2023-01-31 17:42:37', '2023-01-01 17:42:37', '2023-01-15 17:42:37'),
 (NULL, NULL, 2, 'Фебруарски', '2023-02-15 17:42:37', '2023-02-28 17:42:37', '2023-02-01 17:42:37', '2023-02-15 17:42:37'),
@@ -129,12 +88,6 @@ INSERT INTO `ispitnirok` (`createdAt`, `updatedAt`, `id`, `naziv`, `datumPocetka
 (NULL, NULL, 7, 'Септембарски', '2023-09-07 17:42:37', '2023-09-14 17:42:37', '2023-09-01 17:42:37', '2023-09-06 17:42:37'),
 (NULL, NULL, 8, 'Октобарски', '2023-09-25 17:42:37', '2023-09-30 17:42:37', '2023-09-15 17:42:37', '2023-09-18 17:42:37');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `nastava`
---
-
 CREATE TABLE `nastava` (
   `createdAt` bigint(20) DEFAULT NULL,
   `updatedAt` bigint(20) DEFAULT NULL,
@@ -142,10 +95,6 @@ CREATE TABLE `nastava` (
   `profesor` int(11) DEFAULT NULL,
   `predmet` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `nastava`
---
 
 INSERT INTO `nastava` (`createdAt`, `updatedAt`, `id`, `profesor`, `predmet`) VALUES
 (NULL, NULL, 4, 2, 1),
@@ -161,12 +110,6 @@ INSERT INTO `nastava` (`createdAt`, `updatedAt`, `id`, `profesor`, `predmet`) VA
 (NULL, NULL, 14, 3, 7),
 (NULL, NULL, 15, 1, 8);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `obavestenja`
---
-
 CREATE TABLE `obavestenja` (
   `id` int(11) NOT NULL,
   `datumPocetka` date NOT NULL,
@@ -177,19 +120,9 @@ CREATE TABLE `obavestenja` (
   `updatedAt` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `obavestenja`
---
-
 INSERT INTO `obavestenja` (`id`, `datumPocetka`, `datumZavrsetka`, `naslov`, `tekst`, `createdAt`, `updatedAt`) VALUES
 (1, '2023-06-19', '2023-09-30', 'Ново радно време Студенске службе', 'Услед предстојећих празника Студентска служба ће радити од 12:00ч до 14:00ч од понедељка до среде.', 0, 0),
 (2, '2023-06-21', '2023-09-30', 'Отварање нових просторија за студенте', 'Од понедељка, 17.04.2023., нове простоје на трећем спрату зграде 2 ће бити отворене за све студенте.', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ocena`
---
 
 CREATE TABLE `ocena` (
   `createdAt` bigint(20) DEFAULT NULL,
@@ -200,20 +133,10 @@ CREATE TABLE `ocena` (
   `prijava` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `ocena`
---
-
 INSERT INTO `ocena` (`createdAt`, `updatedAt`, `id`, `ocena`, `profesor`, `prijava`) VALUES
 (NULL, NULL, 3, 10, 5, 13),
 (NULL, NULL, 4, 5, 6, 15),
 (NULL, NULL, 5, 5, 2, 14);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `praksa`
---
 
 CREATE TABLE `praksa` (
   `createdAt` bigint(20) DEFAULT NULL,
@@ -226,12 +149,6 @@ CREATE TABLE `praksa` (
   `studentId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `predavanje`
---
-
 CREATE TABLE `predavanje` (
   `createdAt` bigint(20) DEFAULT NULL,
   `updatedAt` bigint(20) DEFAULT NULL,
@@ -240,22 +157,12 @@ CREATE TABLE `predavanje` (
   `predmet` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `predavanje`
---
-
 INSERT INTO `predavanje` (`createdAt`, `updatedAt`, `id`, `student`, `predmet`) VALUES
 (NULL, NULL, 4, 1, 2),
 (NULL, NULL, 5, 1, 5),
 (NULL, NULL, 6, 1, 10),
 (NULL, NULL, 7, 1, 12),
 (NULL, NULL, 8, 1, 7);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `predmet`
---
 
 CREATE TABLE `predmet` (
   `createdAt` bigint(20) DEFAULT NULL,
@@ -267,10 +174,6 @@ CREATE TABLE `predmet` (
   `semestar` int(11) DEFAULT NULL,
   `website` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `predmet`
---
 
 INSERT INTO `predmet` (`createdAt`, `updatedAt`, `id`, `nazivPredmeta`, `espb`, `izborni`, `semestar`, `website`) VALUES
 (NULL, NULL, 1, 'Математика 1', 6, 0, 1, 'http://math.fon.bg.ac.rs/kursevi/matematika1'),
@@ -286,12 +189,6 @@ INSERT INTO `predmet` (`createdAt`, `updatedAt`, `id`, `nazivPredmeta`, `espb`, 
 (NULL, NULL, 11, 'Производни системи', 6, 0, 3, 'http://imi.fon.bg.ac.rs/proizvodni-sistemi/'),
 (NULL, NULL, 12, 'Производни системи', 6, 0, 4, 'http://imi.fon.bg.ac.rs/proizvodni-sistemi/');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `prijava`
---
-
 CREATE TABLE `prijava` (
   `createdAt` bigint(20) DEFAULT NULL,
   `updatedAt` bigint(20) DEFAULT NULL,
@@ -301,20 +198,10 @@ CREATE TABLE `prijava` (
   `ispit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `prijava`
---
-
 INSERT INTO `prijava` (`createdAt`, `updatedAt`, `id`, `datumPrijave`, `student`, `ispit`) VALUES
 (NULL, NULL, 13, '2023-06-02 16:58:49', 1, 9),
 (NULL, NULL, 14, '2023-06-05 17:02:16', 1, 5),
 (NULL, NULL, 15, '2023-06-05 17:02:16', 1, 29);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `profesor`
---
 
 CREATE TABLE `profesor` (
   `createdAt` bigint(20) DEFAULT NULL,
@@ -327,10 +214,6 @@ CREATE TABLE `profesor` (
   `mail` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `profesor`
---
-
 INSERT INTO `profesor` (`createdAt`, `updatedAt`, `id`, `ime`, `prezime`, `jmbg`, `zvanje`, `mail`) VALUES
 (NULL, NULL, 1, 'Петар', 'Петровић', '23821328193279', 'ДР', 'petar.petrovic@fon.bg.ac.rs'),
 (NULL, NULL, 2, 'Јован', 'Јовановић', '498274702109', 'МР', 'jovan.jovanovic@fon.bg.ac.rs'),
@@ -338,12 +221,6 @@ INSERT INTO `profesor` (`createdAt`, `updatedAt`, `id`, `ime`, `prezime`, `jmbg`
 (NULL, NULL, 4, 'Марко', 'Марковић', '2204761837', 'ДР', 'marko.markovic@fon.bg.ac.rs'),
 (NULL, NULL, 5, 'Ана', 'Анић', '23456378', 'МР', 'ana.anic@fon.bg.ac.rs'),
 (NULL, NULL, 6, 'Петра', 'Петрић', '456789', 'ДР', 'petra.petric@fon.bg.ac.rs');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `semestar`
---
 
 CREATE TABLE `semestar` (
   `createdAt` bigint(20) DEFAULT NULL,
@@ -354,10 +231,6 @@ CREATE TABLE `semestar` (
   `smer` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `semestar`
---
-
 INSERT INTO `semestar` (`createdAt`, `updatedAt`, `id`, `godinaStudija`, `brojSemestra`, `smer`) VALUES
 (NULL, NULL, 1, 1, 1, 'Менаџмент'),
 (NULL, NULL, 2, 1, 1, 'ИСИТ'),
@@ -367,12 +240,6 @@ INSERT INTO `semestar` (`createdAt`, `updatedAt`, `id`, `godinaStudija`, `brojSe
 (NULL, NULL, 6, 2, 1, 'Менаџмент'),
 (NULL, NULL, 7, 2, 2, 'ИСИТ'),
 (NULL, NULL, 8, 2, 1, 'ИСИТ');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student`
---
 
 CREATE TABLE `student` (
   `createdAt` bigint(20) DEFAULT NULL,
@@ -386,20 +253,10 @@ CREATE TABLE `student` (
   `semestar` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `student`
---
-
 INSERT INTO `student` (`createdAt`, `updatedAt`, `id`, `ime`, `prezime`, `indeks`, `korisnickoIme`, `sifra`, `semestar`) VALUES
 (NULL, NULL, 1, 'Ивона', 'Петровић', '2017-0246', '20170246', '20170246', 2),
 (NULL, NULL, 2, 'Јована', 'Чордар', '2017-0066', '20170066', '20170066', 2),
 (NULL, NULL, 3, 'Нина', 'Мандић', '2017-0123', '20170123', '20170123', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sv20`
---
 
 CREATE TABLE `sv20` (
   `createdAt` bigint(20) DEFAULT NULL,
@@ -432,109 +289,66 @@ CREATE TABLE `sv20` (
   `student` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `archive`
---
 ALTER TABLE `archive`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
---
--- Indexes for table `ispit`
---
 ALTER TABLE `ispit`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `FK_ISPIT_ISPITNI_ROK` (`ispitniRok`),
   ADD KEY `FK_ISPIT_PREDMET` (`predmet`);
 
---
--- Indexes for table `ispitnirok`
---
 ALTER TABLE `ispitnirok`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
---
--- Indexes for table `nastava`
---
 ALTER TABLE `nastava`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `FK_NASTAVA_PREDMET` (`predmet`),
   ADD KEY `FK_NASTAVA_PROFESOR` (`profesor`);
 
---
--- Indexes for table `obavestenja`
---
 ALTER TABLE `obavestenja`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `ocena`
---
 ALTER TABLE `ocena`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `FK_OCENA_PRIJAVA` (`prijava`),
   ADD KEY `FK_OCENA_PROFESOR` (`profesor`);
 
---
--- Indexes for table `praksa`
---
 ALTER TABLE `praksa`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD UNIQUE KEY `pib` (`pib`);
 
---
--- Indexes for table `predavanje`
---
 ALTER TABLE `predavanje`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `FK_PREDAVANJE_PREDMET` (`predmet`),
   ADD KEY `FK_PREDAVANJE_STUDENT` (`student`);
 
---
--- Indexes for table `predmet`
---
 ALTER TABLE `predmet`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `FK_PREDMET_SEMESTAR` (`semestar`);
 
---
--- Indexes for table `prijava`
---
 ALTER TABLE `prijava`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `FK_PRIJAVA_STUDENT` (`student`),
   ADD KEY `FK_PRIJAVA_ISPIT` (`ispit`);
 
---
--- Indexes for table `profesor`
---
 ALTER TABLE `profesor`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD UNIQUE KEY `jmbg` (`jmbg`);
 
---
--- Indexes for table `semestar`
---
 ALTER TABLE `semestar`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
---
--- Indexes for table `student`
---
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
@@ -543,154 +357,77 @@ ALTER TABLE `student`
   ADD UNIQUE KEY `sifra` (`sifra`),
   ADD KEY `FK_STUDENT_SEMESTAR` (`semestar`);
 
---
--- Indexes for table `sv20`
---
 ALTER TABLE `sv20`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD UNIQUE KEY `jmbg` (`jmbg`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `archive`
---
 ALTER TABLE `archive`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `ispit`
---
 ALTER TABLE `ispit`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
---
--- AUTO_INCREMENT for table `ispitnirok`
---
 ALTER TABLE `ispitnirok`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
--- AUTO_INCREMENT for table `nastava`
---
 ALTER TABLE `nastava`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
---
--- AUTO_INCREMENT for table `obavestenja`
---
 ALTER TABLE `obavestenja`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT for table `ocena`
---
 ALTER TABLE `ocena`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT for table `praksa`
---
 ALTER TABLE `praksa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `predavanje`
---
 ALTER TABLE `predavanje`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
--- AUTO_INCREMENT for table `predmet`
---
 ALTER TABLE `predmet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
---
--- AUTO_INCREMENT for table `prijava`
---
 ALTER TABLE `prijava`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1511112;
 
---
--- AUTO_INCREMENT for table `profesor`
---
 ALTER TABLE `profesor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
--- AUTO_INCREMENT for table `semestar`
---
 ALTER TABLE `semestar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
--- AUTO_INCREMENT for table `student`
---
 ALTER TABLE `student`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT for table `sv20`
---
 ALTER TABLE `sv20`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `ispit`
---
 ALTER TABLE `ispit`
   ADD CONSTRAINT `ispit_ibfk_1` FOREIGN KEY (`ispitniRok`) REFERENCES `ispitnirok` (`id`),
   ADD CONSTRAINT `ispit_ibfk_2` FOREIGN KEY (`predmet`) REFERENCES `predmet` (`id`);
 
---
--- Constraints for table `nastava`
---
 ALTER TABLE `nastava`
   ADD CONSTRAINT `nastava_ibfk_1` FOREIGN KEY (`predmet`) REFERENCES `predmet` (`id`),
   ADD CONSTRAINT `nastava_ibfk_2` FOREIGN KEY (`profesor`) REFERENCES `profesor` (`id`);
 
---
--- Constraints for table `ocena`
---
 ALTER TABLE `ocena`
   ADD CONSTRAINT `ocena_ibfk_1` FOREIGN KEY (`prijava`) REFERENCES `prijava` (`id`),
   ADD CONSTRAINT `ocena_ibfk_2` FOREIGN KEY (`profesor`) REFERENCES `profesor` (`id`);
 
---
--- Constraints for table `predavanje`
---
 ALTER TABLE `predavanje`
   ADD CONSTRAINT `predavanje_ibfk_1` FOREIGN KEY (`predmet`) REFERENCES `predmet` (`id`),
   ADD CONSTRAINT `predavanje_ibfk_2` FOREIGN KEY (`student`) REFERENCES `student` (`id`);
 
---
--- Constraints for table `predmet`
---
 ALTER TABLE `predmet`
   ADD CONSTRAINT `predmet_ibfk_1` FOREIGN KEY (`semestar`) REFERENCES `semestar` (`id`);
 
---
--- Constraints for table `prijava`
---
 ALTER TABLE `prijava`
   ADD CONSTRAINT `prijava_ibfk_1` FOREIGN KEY (`student`) REFERENCES `student` (`id`),
   ADD CONSTRAINT `prijava_ibfk_2` FOREIGN KEY (`ispit`) REFERENCES `ispit` (`id`);
 
---
--- Constraints for table `student`
---
 ALTER TABLE `student`
   ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`semestar`) REFERENCES `semestar` (`id`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
