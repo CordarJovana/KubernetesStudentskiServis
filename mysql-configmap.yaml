@@ -8,10 +8,6 @@ data:
   CREATE DATABASE IF NOT EXISTS estudent;
     USE estudent;
 
-  SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-  START TRANSACTION;
-  SET time_zone = "+00:00";
-
   CREATE TABLE `archive` (
     `id` int(11) NOT NULL,
     `createdAt` bigint(20) DEFAULT NULL,
