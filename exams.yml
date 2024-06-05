@@ -3,7 +3,6 @@ kind: Pod
 metadata:
   name: exams
   labels:
-    name: exams
     app: mikroservisi
 spec:
   containers:
@@ -13,3 +12,17 @@ spec:
         - containerPort: 9000
   imagePullSecrets:
     - name: myregistrykey
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exams-service
+  labels:
+    app: mikroservisi
+spec:
+  ports:
+    - port: 9000
+      targetPort: 9000
+  selector:
+    app: mikroservisi

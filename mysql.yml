@@ -3,13 +3,12 @@ kind: Pod
 metadata:
   name: db
   labels:
-    name: db
     app: mikroservisi
 spec:
   imagePullSecrets:
     - name: myregistrykey
   containers:
-    - name: mysql
+    - name: db
       image: cordarjovana/mikroservisi:mysql
       env:
         - name: MYSQL_ROOT_PASSWORD
@@ -28,3 +27,17 @@ spec:
   volumes:
     - name: dbdata
       emptyDir: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+  labels:
+    app: mikroservisi
+spec:
+  ports:
+    - port: 3306
+      targetPort: 3306
+  selector:
+    app: mikroservisi
