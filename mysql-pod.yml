@@ -6,17 +6,25 @@ metadata:
     name: db
     app: mikroservisi
 spec:
- imagePullSecrets:
+  imagePullSecrets:
     - name: myregistrykey
   containers:
     - name: mysql
       image: mysql:5.7
-       env:
-    - name: POSTGRES_USER
-      value: "postgres"
-    - name:  POSTGRES_PASSWORD
-      value: "postgres"
-    - name: POSTGRES_HOST_AUTH_METHOD
-      value: trust
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "my_secret_password"
+        - name: MYSQL_DATABASE
+          value: "app_db"
+        - name: MYSQL_USER
+          value: "db_user"
+        - name: MYSQL_PASSWORD
+          value: "db_user_pass"
       ports:
         - containerPort: 3306
+      volumeMounts:
+        - name: dbdata
+          mountPath: /var/lib/mysql
+  volumes:
+    - name: dbdata
+      emptyDir: {}
