@@ -1,6 +1,3 @@
-Sure! Below is the updated `mysql-configmap.yaml` file including the additional SQL script you provided.
-
-```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
