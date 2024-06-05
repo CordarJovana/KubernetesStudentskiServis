@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mikroservisi-backend-service
+  name: backend-service
   labels:
-    name: mikroservisi-backend-service
+    name: backend-service
     app: mikroservisi
 spec:
   ports:
     - port: 1337
       targetPort: 1337
   selector:
-    name: mikroservisi-backend-pod
+    name: backend
     app: mikroservisi

@@ -7,8 +7,8 @@ metadata:
     app: mikroservisi
 spec:
   containers:
-    - name: backend-1
-      image: cordarjovana/mikroservisi:backend
+    - name: backend
+      image: backend
       ports:
         - containerPort: 1337
   imagePullSecrets:

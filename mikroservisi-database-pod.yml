@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mikroservisi-database-pod
+  name: database
   labels:
-    name: mikroservisi-database-pod
+    name: database
     app: mikroservisi
 spec:
   containers:
-    - name: database-1
-      image: cordarjovana/mikroservisi:database
+    - name: database
+      image: database
       ports:
         - containerPort: 4185
   imagePullSecrets:

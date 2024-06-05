@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mikroservisi-exams-pod
+  name: exams
   labels:
-    name: mikroservisi-exams-pod
+    name: exams
     app: mikroservisi
 spec:
   containers:
-    - name: exams-1
-      image: cordarjovana/mikroservisi:exams
+    - name: exams
+      image: exams
       ports:
         - containerPort: 9000
   imagePullSecrets:
