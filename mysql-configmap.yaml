@@ -86,9 +86,7 @@ data:
     CREATE TABLE predmet (
       createdAt bigint(20) DEFAULT NULL,
       updatedAt bigint(20) DEFAULT NULL,
-      id int(11) NOT NULL
-
-,
+      id int(11) NOT NULL,
       naziv varchar(255) DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -282,9 +280,7 @@ data:
 
     ALTER TABLE ocena
       ADD CONSTRAINT ocena_ibfk_1 FOREIGN KEY (prijava) REFERENCES prijava (id),
-      ADD CONSTRAINT ocena_ibfk_2 FOREIGN KEY (profesor
-
-) REFERENCES profesor (id);
+      ADD CONSTRAINT ocena_ibfk_2 FOREIGN KEY (profesor) REFERENCES profesor (id);
 
     ALTER TABLE predavanje
       ADD CONSTRAINT predavanje_ibfk_1 FOREIGN KEY (predmet) REFERENCES predmet (id),
