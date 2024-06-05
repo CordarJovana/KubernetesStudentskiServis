@@ -10,5 +10,5 @@ spec:
     - port: 3306
       targetPort: 3306
   selector:
-    name: mysql-pod
+    name: db
     app: mikroservisi
