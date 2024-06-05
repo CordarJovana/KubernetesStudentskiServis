@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: db
+  name: mysql
   labels:
     app: mikroservisi
 spec:
   imagePullSecrets:
     - name: myregistrykey
   containers:
-    - name: db
+    - name: mysql
       image: cordarjovana/mikroservisi:mysql
       env:
         - name: MYSQL_ROOT_PASSWORD
           value: "my_secret_password"
         - name: MYSQL_DATABASE
-          value: "app_db"
+          value: "estudent"
         - name: MYSQL_USER
           value: "db_user"
         - name: MYSQL_PASSWORD
@@ -32,7 +32,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: db-service
+  name: db
   labels:
     app: mikroservisi
 spec:
