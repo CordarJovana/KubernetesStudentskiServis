@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
     - name: exams
-      image: exams
+      image: cordarjovana/mikroservisi:exams
       ports:
         - containerPort: 9000
   imagePullSecrets:

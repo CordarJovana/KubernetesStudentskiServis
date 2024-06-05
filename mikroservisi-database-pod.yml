@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
     - name: database
-      image: database
+      image: cordarjovana/mikroservisi:database
       ports:
         - containerPort: 4185
   imagePullSecrets:
