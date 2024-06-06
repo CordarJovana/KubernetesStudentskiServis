@@ -4,6 +4,7 @@ metadata:
   name: frontend-pod
   labels:
     app: mikroservisi
+    tier: frontend
 spec:
   containers:
     - name: frontend
@@ -18,11 +19,13 @@ kind: Service
 metadata:
   name: frontend
   labels:
-     app: mikroservisi
+    app: mikroservisi
+    tier: frontend
 spec:
-   type: LoadBalancer
-   ports:
-     - port: 3000
-       targetPort: 3000
-   selector:
-     app: mikroservisi
+  type: LoadBalancer
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: mikroservisi
+    tier: frontend
