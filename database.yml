@@ -4,6 +4,7 @@ metadata:
   name: database-pod
   labels:
     app: mikroservisi
+    tier: database
 spec:
   containers:
     - name: database
@@ -12,7 +13,6 @@ spec:
         - containerPort: 4185
   imagePullSecrets:
     - name: myregistrykey
-
 ---
 apiVersion: v1
 kind: Service
@@ -20,9 +20,11 @@ metadata:
   name: database
   labels:
     app: mikroservisi
+    tier: database
 spec:
   ports:
     - port: 4185
       targetPort: 4185
   selector:
     app: mikroservisi
+    tier: database
