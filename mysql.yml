@@ -335,6 +335,8 @@ spec:
   containers:
     - name: mysql
       image: cordarjovana/mikroservisi:mysql
+      args:
+        - "--ignore-db-dir=lost+found"
       env:
         - name: MYSQL_ROOT_PASSWORD
           value: "my_secret_password"
