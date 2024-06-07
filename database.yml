@@ -22,6 +22,7 @@ metadata:
     app: mikroservisi
     tier: database
 spec:
+  type: LoadBalancer
   ports:
     - port: 4185
       targetPort: 4185

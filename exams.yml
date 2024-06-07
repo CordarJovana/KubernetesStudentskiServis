@@ -22,6 +22,7 @@ metadata:
     app: mikroservisi
     tier: exams
 spec:
+  type: LoadBalancer
   ports:
     - port: 9000
       targetPort: 9000

@@ -14,6 +14,7 @@ spec:
   imagePullSecrets:
     - name: myregistrykey
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -22,6 +23,7 @@ metadata:
     app: mikroservisi
     tier: backend
 spec:
+  type: LoadBalancer
   ports:
     - port: 1337
       targetPort: 1337
