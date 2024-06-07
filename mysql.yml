@@ -298,7 +298,6 @@ data:
     COMMIT;
 
 ---
-
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -311,9 +310,7 @@ spec:
   gcePersistentDisk:
     pdName: mysql-disk
     fsType: ext4
-
 ---
-
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -324,9 +321,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-
 ---
-
 apiVersion: v1
 kind: Pod
 metadata:
@@ -361,7 +356,7 @@ spec:
       command:
         - sh
         - -c
-        - cp /config/estudent.sql /docker-entrypoint-initdb.d/estudent.sql
+        - test ! -f /docker-entrypoint-initdb.d/estudent.sql && cp /config/estudent.sql /docker-entrypoint-initdb.d/estudent.sql || echo "Init script already present"
       volumeMounts:
         - name: initdb
           mountPath: /docker-entrypoint-initdb.d
@@ -376,9 +371,7 @@ spec:
         name: mysql-initdb-config
     - name: initdb
       emptyDir: {}
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
