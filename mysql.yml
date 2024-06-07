@@ -303,6 +303,7 @@ kind: PersistentVolume
 metadata:
   name: mysql-pv
 spec:
+  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 10Gi
   accessModes:
