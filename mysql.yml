@@ -305,11 +305,12 @@ metadata:
   name: mysql-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  hostPath:
-    path: /mnt/data/mysql
+  gcePersistentDisk:
+    pdName: mysql-disk
+    fsType: ext4
 
 ---
 
@@ -322,7 +323,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 10Gi
 
 ---
 
